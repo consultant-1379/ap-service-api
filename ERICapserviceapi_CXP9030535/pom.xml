@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ericsson.oss.autoprovisioning.core</groupId>
+        <artifactId>ap-service-api</artifactId>
+        <version>1.95.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+    <artifactId>ERICapserviceapi_CXP9030535</artifactId>
+    <packaging>${rpm.packaging}</packaging>
+    <name>[${project.parent.artifactId}] CXP module</name>
+
+    <properties>
+        <media.category>service</media.category>
+        <install-path>${project.artifactId}</install-path>
+        <publish_artifact>true</publish_artifact>
+    </properties>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <configuration>
+                    <mappings>
+                        <mapping>
+                            <directory>/opt/ericsson/${install-path}</directory>
+                            <filemode>775</filemode>
+                            <username>litp_jboss</username>
+                            <groupname>litp_jboss</groupname>
+                            <configuration>false</configuration>
+                            <directoryIncluded>true</directoryIncluded>
+                            <recurseDirectories>false</recurseDirectories>
+                        </mapping>
+                    </mappings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

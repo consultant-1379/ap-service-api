@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ericsson.oss.autoprovisioning.ap-parent</groupId>
+        <artifactId>ap-parent</artifactId>
+        <version>1.13.104</version>
+    </parent>
+
+    <groupId>com.ericsson.oss.autoprovisioning.core</groupId>
+    <artifactId>ap-service-api</artifactId>
+    <version>1.95.1-SNAPSHOT</version>
+    <name>[${project.artifactId}] JEE6 project</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>ap-cluster-api</module>
+        <module>ap-resource-api</module>
+        <module>ap-restore-api</module>
+        <module>ap-schema-api</module>
+        <module>ap-status-api</module>
+        <module>ap-upload-api</module>
+        <module>ap-validation-api</module>
+        <module>ap-workflow-api</module>
+        <module>aps-api</module>
+        <module>ERICapserviceapi_CXP9030535</module>
+    </modules>
+
+    <scm>
+        <connection>${ericsson.scm.url}</connection>
+        <developerConnection>${ericsson.scm.url}</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <!-- Temporary work-around for issue where ap-parent appears in connection when using scm entries from parent pom -->
+        <ericsson.scm.url>scm:git:[fetch=]ssh://gerritmirror-ha.lmera.ericsson.se:29418/OSS/com.ericsson.oss.autoprovisioning.core/ap-service-api[push=]ssh://gerrit.ericsson.se:29418/OSS/com.ericsson.oss.autoprovisioning.core/ap-service-api</ericsson.scm.url>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Versions for all child modules must be specified here, to ensure that correct dependency versions are injected for the internal module 
+                dependencies inside this repository -->
+            <dependency>
+                <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+                <artifactId>ap-cluster-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+                <artifactId>ap-resource-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+                <artifactId>ap-restore-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+                <artifactId>ap-schema-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+                <artifactId>ap-status-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+                <artifactId>ap-upload-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+                <artifactId>ap-validation-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+                <artifactId>ap-workflow-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ericsson.oss.services.autoprovisioning</groupId>
+                <artifactId>aps-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Test Dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
